@@ -16,7 +16,7 @@ class HRMAddEmployeePage:
         self.page.get_by_role("button", name="Save").click()
         try:
             self.page.get_by_text("Username already exists").wait_for(timeout=2000)
-            print("⚠ Username already exists → deleting old employee...")
+            print("Username already exists → deleting old employee...")
             self.delete_employee()
             self.add_employee()
         except TimeoutError:
