@@ -14,7 +14,13 @@ class HRMAddEmployeePage:
         self.page.locator("input[type=\"password\"]").first.fill("admin123")
         self.page.locator("input[type=\"password\"]").nth(1).fill("admin123")
         self.page.get_by_role("button", name="Save").click()
-        expect(self.page.get_by_text("SuccessSuccessfully Saved×")).to_be_visible()
+        try:
+            self.page.get_by_text("Username already exists").wait_for(timeout=2000)
+            print("⚠ Username already exists → deleting old employee...")
+            self.delete_employee()
+            self.add_employee()
+        except TimeoutError:
+            expect(self.page.get_by_text("SuccessSuccessfully Saved×")).to_be_visible()
 
     def delete_employee(self):
         self.page.get_by_role("link", name="PIM").click()
