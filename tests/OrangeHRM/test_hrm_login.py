@@ -6,6 +6,7 @@ from Pages.OrangeHRM_pages.hrm_site_open import HRMSiteOpenPage
 
 
 def test_hrm_login(page: Page) -> None:
+    
     opensite = HRMSiteOpenPage(page)
     login = HRMLoginPage(page)
     opensite.open_site()
