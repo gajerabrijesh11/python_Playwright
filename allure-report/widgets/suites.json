@@ -1,1 +1,1 @@
-{"total":3,"items":[{"uid":"82e82aad9f39759f05cbd14b70cd22f5","name":"tests.OrangeHRM","statistic":{"failed":0,"broken":4,"skipped":0,"passed":0,"unknown":0,"total":4}},{"uid":"b1333f7a432947dd84c545516187e24c","name":"tests.Onlylogins","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}},{"uid":"c08c1eff0fa7cafea7255b420b3edad9","name":"tests.Other","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}
+{"total":1,"items":[]}
