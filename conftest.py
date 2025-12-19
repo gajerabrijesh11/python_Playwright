@@ -23,10 +23,10 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
 
-    if rep.when == "call":
+    if rep.when == "call" and rep.failed:
         page = item.funcargs.get("page", None)
 
-        if rep.failed and page:
+        if page:
             # Screenshot
             screenshot = page.screenshot(full_page=True)
             allure.attach(
@@ -43,7 +43,7 @@ def pytest_runtest_makereport(item, call):
             )
 
         # Attach video (pass or fail)
-        if page and page.video:
+        if page.video:
             video_path = page.video.path()
             if os.path.exists(video_path):
                 allure.attach.file(
