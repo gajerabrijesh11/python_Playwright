@@ -1,7 +1,9 @@
 import allure
 import pytest
 import os
+import shutil
 from pathlib import Path
+
 
 @pytest.fixture(scope="function")
 def context(browser, request):
@@ -51,3 +53,9 @@ def pytest_runtest_makereport(item, call):
                     name="Test Video",
                     attachment_type=allure.attachment_type.MP4
                 )
+@pytest.fixture(scope="session", autouse=True)
+def clean_videos_folder():
+    videos_dir = Path("videos")
+    if videos_dir.exists():
+        shutil.rmtree(videos_dir)
+    videos_dir.mkdir(exist_ok=True)
