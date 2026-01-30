@@ -18,3 +18,15 @@ class HRMAddREPORTPage:
         self.page.get_by_role("button", name="").nth(1).click()
         self.page.get_by_role("button", name="Save").click()
         expect(self.page.get_by_role("heading", name="test report brijesh")).to_be_visible()
+""""
+    def delete_report (self):
+        self.page.get_by_role("link", name="PIM").click()
+        self.page.get_by_role("link", name="Reports").click()
+        self.page.get_by_role("textbox", name="Type for hints...").fill("test")
+        self.page.get_by_role("option").get_by_text("test report brijesh").click()
+        self.page.get_by_role("button", name="Search").click()
+        self.page.locator(".oxd-table-card-cell-checkbox > .oxd-checkbox-wrapper > label > .oxd-checkbox-input > .oxd-icon").click()
+        self.page.get_by_role("button", name=" Delete Selected").click()
+        self.page.get_by_role("button", name=" Yes, Delete").click()
+        expect(self.page.get_by_text("SuccessSuccessfully Deleted")).to_be_visible()
+"""
